@@ -30,13 +30,31 @@
         margin-right: calc(40% - 150px);
       }
 
-      .anim {
-        width: 185px;
-        height: 160px;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: hidden;
-      }
+.gif-toggle {
+  position: relative;
+  display: inline-block;
+}
+#gif-toggle {
+  display: none;
+}
+.gif-toggle label {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.gif-toggle .active-gif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+#gif-toggle:checked + label .active-gif {
+  opacity: 1;
+}
+#gif-toggle:checked + label .static-frame {
+  opacity: 0;
+}
+    
     </style>
 </head>
 <body>
@@ -56,6 +74,13 @@
 <div class="margins">
     <p> If you zoomed in to one section of the Sierpinski triangle, you would find the same image!</p>
 </div>
-<div class = "anim"> <img src = "FractalSheet.png" alt = "A zoomable image of a Sierpinski triangle."> </div>
+<div class="gif-toggle">
+    <input type="checkbox" id="gif-toggle">
+    <label for="gif-toggle">
+        <img class="static-frame" src="FractalZooms.png" alt="A Sierpinski triangle.">
+        <img class="active-gif" src="FractalZoom.gif" alt="A zooming Sierpinski triangle.">
+    </label>
+</div>
+    
 </body>
 </html>
